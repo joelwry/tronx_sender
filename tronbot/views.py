@@ -1,13 +1,9 @@
 from django.shortcuts import render,HttpResponse
-from .tasks import check_wallet_task
 from .bot_utility.main import getSenderAndRecieverWalletBalance
-
-# Create your views here.
-check_wallet_task(repeat=5) # schedules the task to run
 
 def activeTronBot(request):
     return HttpResponse('<h2>TRON BOT ACTIVE </h2>')
-
+    
 def walletBalance(request) : 
     balance = getSenderAndRecieverWalletBalance()
     if balance :
